@@ -4,6 +4,7 @@ import {
     createBrowserRouter,
     createRoutesFromElements,
     Route,
+    useParams,
 } from "react-router-dom";
 import { Layout } from "./pages/Layout";
 import { Home } from "./pages/Home";
@@ -19,7 +20,7 @@ export const router = createBrowserRouter(
         {/* Nested Routes: Defines sub-routes within the BaseHome component. */}
         <Route path= "/" element={<Home />} />
         <Route path="/favorites" element={<Favorites />} />
-        <Route path= "/description" element={<Description />} />
+        <Route path= "/description/:parent/:id" element={<Description />} />
       </Route>
     )
 );

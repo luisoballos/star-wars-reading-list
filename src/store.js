@@ -1,6 +1,5 @@
 export const initialStore=()=>{
     return{
-      message: null,
       characters: [],
       vehicles: [],
       planets: [],
@@ -18,17 +17,17 @@ export const initialStore=()=>{
           vehicles: action.payload.vehicles,
           planets: action.payload.planets
         }
-        case 'add_fav':
-          return {
-            ...store,
-            favorites: [...store.favorites, store.characters.find((char) => char.id === action.id)]
-          }
-        case 'remove_fav':
-          return {
-            ...store,
-            favorites: store.favorites.filter((fav) => fav !== action.payload.id)
-            };
-        default:
-          throw Error('Unknown action.');
+      case 'add_fav':
+        return {
+          ...store,
+          favorites: [...store.favorites, store.characters.find((char) => char.id === action.id)]
+        }
+      case 'remove_fav':
+        return {
+          ...store,
+          favorites: store.favorites.filter((fav) => fav !== action.payload.id)
+        };
+      default:
+        throw Error('Unknown action.');
     }
   }
