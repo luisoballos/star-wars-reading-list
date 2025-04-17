@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom"
+import { Favorites } from "../pages/Favorites"
 
 export const Navbar = () => {
 	return (
@@ -62,9 +63,7 @@ export const Navbar = () => {
 					>
 						Favorites
 					</button>
-					<ul className="dropdown-menu dropdown-menu-end" aria-labelledby="favoritesDropdown">
-						<li><a className="dropdown-item" href="#">Action</a></li>
-					</ul>
+					<Favorites />
 				</div>
 			</div>
 		</>

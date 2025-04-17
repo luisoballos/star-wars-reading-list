@@ -1,11 +1,17 @@
 import { Link } from "react-router-dom";
 import useGlobalReducer from "../hooks/useGlobalReducer";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faStar } from '@fortawesome/free-solid-svg-icons';
 
 export const Card = ({ parent, id }) => {
-  const { store , _ } = useGlobalReducer();
+  const { store , dispatch } = useGlobalReducer();
   const item = store[parent]?.[id - 1]; 
 
   if (!item) return null;
+
+  const isFavorited = store.favorites.some(
+    (fav) => fav.id === id && fav.parent === parent
+  );  
 
   return (
     <div className="p-5 border">
@@ -32,7 +38,17 @@ export const Card = ({ parent, id }) => {
           <p>Terrain: {item.properties.terrain}</p>
         </>
       )}
-      <button className="btn btn-outline-light"><Link to={`/description/${parent}/${id - 1}`}>See details</Link></button>
+      <div>
+        <button className="btn btn-outline-light me-2">
+          <Link to={`/description/${parent}/${id - 1}`}>See details</Link>
+        </button>
+        <button
+          onClick={() => dispatch({ type: 'add_fav', parent: parent, id: id })}
+          className={isFavorited ? 'btn btn-warning' : 'btn btn-outline-warning'}
+        >
+          <FontAwesomeIcon icon={faStar} />
+        </button>
+      </div>
     </div>
   );
 };

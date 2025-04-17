@@ -14,8 +14,8 @@ export const Description = () => {
             <div className="gap-4">
                 {Object.entries(properties).map(([key, value], i) => (
                     <ul key={i} className="row min-vw-100">
-                        <li className="col-sm-3">{key}</li>
-                        <li className="col-sm-9">{value}</li>
+                        <li>{key}</li>
+                        <li>{value}</li>
                     </ul>
                 ))}
             </div>

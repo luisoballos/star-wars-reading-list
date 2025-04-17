@@ -18,14 +18,22 @@ export const initialStore=()=>{
           planets: action.payload.planets
         }
       case 'add_fav':
+        const alreadyExists = store.favorites.some(
+          fav => fav.parent === action.parent && fav.id === action.id
+        );
         return {
           ...store,
-          favorites: [...store.favorites, store.characters.find((char) => char.id === action.id)]
-        }
+          favorites: alreadyExists
+            ? store.favorites
+            : [...store.favorites, { parent: action.parent, id: action.id }]
+        };
+      
       case 'remove_fav':
         return {
           ...store,
-          favorites: store.favorites.filter((fav) => fav !== action.payload.id)
+          favorites: store.favorites.filter(
+            fav => !(fav.parent === action.parent && fav.id === action.id)
+          )
         };
       default:
         throw Error('Unknown action.');
