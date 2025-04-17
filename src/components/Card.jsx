@@ -14,37 +14,39 @@ export const Card = ({ parent, id }) => {
   );  
 
   return (
-    <div className="p-5 border">
-      <img className="w-100 border" />
-      <h2 className="pb-2 capitalize">
+    <div
+      className="p-5 border d-flex flex-column"
+      style={{"minWidth": "275px", "minHeight":"400px"}}>
+      <img className="w-100 border mb-2" style={{"height":"100px"}} />
+      <h2>
         {item.properties.name}
       </h2>
       {parent === "characters" && (
         <>
-          <p>Gender: {item.properties.gender}</p>
-          <p>Hair Color: {item.properties.hair_color}</p>
-          <p>Eye Color: {item.properties.eye_color}</p>
+          <span>Gender: {item.properties.gender}</span>
+          <span>Hair Color: {item.properties.hair_color}</span>
+          <span>Eye Color: {item.properties.eye_color}</span>
         </>
       )}
       {parent === "vehicles" && (
         <>
-          <p>Model: {item.properties.model}</p>
-          <p>Manufacturer: {item.properties.manufacturer}</p>
+          <span>Model: {item.properties.model}</span>
+          <span>Manufacturer: {item.properties.manufacturer}</span>
         </>
       )}
       {parent === "planets" && (
         <>
-          <p>Climate: {item.properties.climate}</p>
-          <p>Terrain: {item.properties.terrain}</p>
+          <span>Climate: {item.properties.climate}</span>
+          <span>Terrain: {item.properties.terrain}</span>
         </>
       )}
-      <div>
-        <button className="btn btn-outline-light me-2">
+      <div className="d-flex mt-auto">
+        <button className="btn btn-outline-light">
           <Link to={`/description/${parent}/${id - 1}`}>See details</Link>
         </button>
         <button
           onClick={() => dispatch({ type: 'add_fav', parent: parent, id: id })}
-          className={isFavorited ? 'btn btn-warning' : 'btn btn-outline-warning'}
+          className={isFavorited ? "btn btn-warning ms-auto" : "btn btn-outline-warning ms-auto"}
         >
           <FontAwesomeIcon icon={faStar} />
         </button>
