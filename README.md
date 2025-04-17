@@ -1,31 +1,31 @@
-# Star Wars Blog Reading List
+# Star Wars Reading List 🌌
 
-*May the force be with your reading list...*
+*A minimalist version of the Star Wars Databank — with favorites, random exploration, and search!*
 
-A minimalist version of the Star Wars Databank with a "Favorites" list functionality, built with React and consuming the SWAPI.tech API.
+Built with **React**, **Bootstrap**, and **SWAPI.tech**, this app lets users explore Star Wars characters, vehicles, and planets with ease, and save their favorites with persistent state.
 
-![Star Wars Blog Screenshot](/img/home.png)
+![Star Wars Blog Screenshot](./img/home.png)
 
 ## Features
 
 - Browse Star Wars characters, vehicles, and planets
 - View detailed information for each entity
 - Add/remove items to/from your favorites list
-- Persistent favorites using React Context API
 - Responsive design with Bootstrap components
 
-## Technologies Used
+## Technologies used
 
-- React.js
-- Bootstrap
-- SWAPI.tech API
-- React Router
-- Context API for state management
+- [React.js](https://reactjs.org/)
+- [Bootstrap 5](https://getbootstrap.com/)
+- [React Router](https://reactrouter.com/)
+- [SWAPI.tech](https://www.swapi.tech/)
+- Context API for global state
+- localStorage for persistence
 
-## Installation
+## 🛠 Installation
 
-1. Clone this repository:
-``` bash
+1. Clone this repo:
+```bash
 git clone https://github.com/luisoballos/star-wars-reading-list.git
 ```
 
@@ -50,11 +50,15 @@ npm run dev
 │   ├── Description.jsx
 │   ├── Favorites.jsx
 │   └── ErrorPage.jsx
-npm run start
 ```
 
 ## API usage
 This project uses the [SWAPI.tech](https://www.swapi.tech/documentation) API to fetch Star Wars data. Images are sourced from [Star Wars Databank](https://www.starwars.com/databank).
+
+## To-do
+- Add images to cards.
+- Add search bar functionality.
+- Add local storage.
 
 ## Contributing
 Contributions are welcome! Please fork the repository and submit a pull request.

@@ -20,7 +20,7 @@ export const Favorites = () => {
               <FontAwesomeIcon icon={faTrash} />
             </button>
           </li>
-        ) : <p>Non favorites.</p>;
+        ) : <p>No favorites yet.</p>;
       })}
     </ul>
   );

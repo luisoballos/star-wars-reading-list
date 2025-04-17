@@ -6,12 +6,12 @@ import useGlobalReducer from "../hooks/useGlobalReducer";
 export const ErrorPage = () => {
     const navigate = useNavigate()
 
-    /* useEffect(() => {
+    useEffect(() => {
         setTimeout(() => {
             navigate("/")
         }, 3000)
-    }) */
+    })
     return (
-        <h1>Error 404</h1>
+        <h1 className="mx-auto text-center">Error 404</h1>
     )
 }
