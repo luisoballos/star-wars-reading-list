@@ -5,7 +5,7 @@ import { faStar } from '@fortawesome/free-solid-svg-icons';
 
 export const Card = ({ parent, id }) => {
   const { store , dispatch } = useGlobalReducer();
-  const item = store[parent]?.[id - 1]; 
+  const item = store[parent]?.[id]; 
 
   if (!item) return null;
 
@@ -42,7 +42,7 @@ export const Card = ({ parent, id }) => {
       )}
       <div className="d-flex mt-auto">
         <button className="btn btn-outline-light">
-          <Link to={`/description/${parent}/${id - 1}`}>See details</Link>
+          <Link to={`/description/${parent}/${id}`}>See details</Link>
         </button>
         <button
           onClick={() => dispatch({ type: 'add_fav', parent: parent, id: id })}

@@ -27,24 +27,24 @@ export const Home = () => {
       <div className="mx-5" style={{color:"white"}}>
         <h3 className="h1 my-2 text-center mt-4">CHARACTERS</h3>
         <div className="d-flex overflow-auto">
-          {store.characters.map((details, i) => (
-            <Card key={i} parent="characters" id={details.id} />
+          {store.characters.map((_, i) => (
+            <Card key={i} parent="characters" id={i} />
           ))}
         </div>
       </div>
       <div className="mx-5" style={{color:"white"}}>
         <h3 className="h1 my-2 text-center mt-4">VEHICLES</h3>
         <div className="d-flex overflow-auto">
-          {store.vehicles.map((details, i) => (
-            <Card key={i} parent="vehicles" id={details.id} />
+          {store.vehicles.map((_, i) => (
+            <Card key={i} parent="vehicles" id={i} />
           ))}
         </div>
       </div>
       <div className="mx-5" style={{color:"white"}}>
         <h3 className="h1 my-2 text-center mt-4">PLANETS</h3>
         <div className="d-flex overflow-auto">
-          {store.planets.map((details, i) => (
-            <Card key={i} parent="planets" id={details.id} />
+          {store.planets.map((_, i) => (
+            <Card key={i} parent="planets" id={i} />
           ))}
         </div>
       </div>

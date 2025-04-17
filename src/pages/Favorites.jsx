@@ -7,19 +7,20 @@ export const Favorites = () => {
 
   return (
     <ul className="dropdown-menu dropdown-menu-end" aria-labelledby="favoritesDropdown">
-      {store.favorites.map(({ parent, id }) => {
-        const item = store[parent]?.find((favd) => favd.id === id);
+      {store.favorites.map(( fav, i ) => {
+        const item = store[fav.parent][fav.id];
+        console.log(item);
         return item ? (
-          <li key={`${parent}-${id}`} className="d-flex">
+          <li key={i} className="d-flex">
             <span className="my-auto ms-1">{item.properties?.name}</span>
             <button
               className="btn ms-auto"
-              onClick={() => dispatch({ type: 'remove_fav', parent, id })}
+              onClick={() => dispatch({ type: 'remove_fav', parent: parent, id: id })}
             >
               <FontAwesomeIcon icon={faTrash} />
             </button>
           </li>
-        ) : null;
+        ) : <p>Non favorites.</p>;
       })}
     </ul>
   );

@@ -4,7 +4,7 @@
 
 A minimalist version of the Star Wars Databank with a "Favorites" list functionality, built with React and consuming the SWAPI.tech API.
 
-![Star Wars Blog Screenshot](your-screenshot-url-here.png) <!-- Replace with your actual screenshot -->
+![Star Wars Blog Screenshot](/img/home.png)
 
 ## Features
 
@@ -36,21 +36,20 @@ npm install
 
 3. Run the development server:
 ``` bash
-npm run start
+npm run dev
 ```
 
 ## Project structure
-npm run start
 ``` bash
 ├── components/
-│   ├── Card.js
-│   ├── Details.js
-│   ├── Favorites.js
-│   └── (other components)
-├── views/
-│   ├── home.js
-│   ├── single.js
-│   └── (other views)
+│   ├── Navbar.jsx
+│   ├── Card.jsx
+│   └── Footer.jsx
+├── pages/
+│   ├── Home.jsx
+│   ├── Description.jsx
+│   ├── Favorites.jsx
+│   └── ErrorPage.jsx
 npm run start
 ```
 
