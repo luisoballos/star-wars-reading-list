@@ -15,7 +15,7 @@ export const Favorites = () => {
             <span className="my-auto ms-1">{item.properties?.name}</span>
             <button
               className="btn ms-auto"
-              onClick={() => dispatch({ type: 'remove_fav', parent: parent, id: id })}
+              onClick={() => dispatch({ type: 'remove_fav', parent: fav.parent, id: fav.id })}
             >
               <FontAwesomeIcon icon={faTrash} />
             </button>
