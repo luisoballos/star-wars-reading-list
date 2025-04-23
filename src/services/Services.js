@@ -1,74 +1,25 @@
 const BASE_URL = `https://www.swapi.tech/api`;
 
 export const Services = {
-  fetchCharacters: async () => {
+  fetchInfo: async (section) => {
     try {
-      const response1 = await fetch(`${BASE_URL}/people`);
-      const data1 = await response1.json();
+      const response = await fetch(`${BASE_URL}/${section}`);
+      const data = await response.json();
+      const info = data.results;
   
-      const characters = data1.results;
-  
-      const detailedCharacters = await Promise.all(
-        characters.map(async (char) => {
-          const response = await fetch(char.url);
-          const detailData = await response.json();
+      const detailedInfo = await Promise.all(
+        info.map(async (sect) => {
+          const response1 = await fetch(sect.url);
+          const detailData = await response1.json();
           return {
-            id: char.uid,
+            id: sect.uid,
             properties: detailData.result.properties
           };
         })
       );
-      return(detailedCharacters);
+      return(detailedInfo);
     } catch (e) {
-      console.log("Error fetching people: ", e);
-        return [];
-    }
-  },
-  
-  fetchVehicles: async () => {
-    try {
-      const response1 = await fetch(`${BASE_URL}/vehicles`);
-      const data1 = await response1.json();
-  
-      const vehicles = data1.results;
-  
-      const detailedVehicles = await Promise.all(
-        vehicles.map(async (vehi) => {
-          const response = await fetch(vehi.url);
-          const detailData = await response.json();
-          return {
-            id: vehi.uid,
-            properties: detailData.result.properties
-          };
-        })
-      );
-      return(detailedVehicles);
-    } catch (e) {
-      console.log("Error fetching vehicles: ", e);
-        return [];
-    }
-  },
-
-  fetchPlanets: async () => {
-    try {
-      const response1 = await fetch(`${BASE_URL}/planets`);
-      const data1 = await response1.json();
-  
-      const planets = data1.results;
-  
-      const detailedPlanets = await Promise.all(
-        planets.map(async (planet) => {
-          const response = await fetch(planet.url);
-          const detailData = await response.json();
-          return {
-            id: planet.uid,
-            properties: detailData.result.properties
-          };
-        })
-      );
-      return(detailedPlanets);
-    } catch (e) {
-      console.log("Error fetching planets: ", e);
+      console.log(`Error fetching ${section}: `, e);
         return [];
     }
   },
